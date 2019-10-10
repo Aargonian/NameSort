@@ -1,60 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <name_string.h>
-
-#define MIN_VEC_SIZE 8
-//stdint guarantees the least types, unlike the standard uint32_t;
-typedef uint_least32_t uint32;
-
-//Simple vector implementation for our strings
-typedef struct str_vector
-{
-    string **array;
-    uint32 size;
-    uint32 _capacity;
-} string_vector;
-
-string_vector *create_vector(uint32 capacity)
-{
-    if(capacity < MIN_VEC_SIZE)
-    {
-        capacity = MIN_VEC_SIZE;
-    }
-    string_vector *vec = malloc(sizeof(string_vector));
-    vec->array = malloc(sizeof(string *) * capacity);
-    vec->size = 0;
-    vec->_capacity = capacity;
-    return vec;
-}
-
-/*
- * For our particular program, we don't need the ability to remove items from
- * the vector, as we'll only ever be adding to it.
- */
-void vector_add(string_vector *vector, string *str)
-{
-    if(vector->size == vector->_capacity)
-    {
-        string **new_array = malloc(sizeof(string *) * vector->_capacity * 2);
-        for(uint32 index = 0; index < vector->_capacity; index++)
-        {
-            new_array[index] = vector->array[index];
-        }
-        free(vector->array);
-        vector->array = new_array;
-        vector->_capacity *= 2;
-    }
-    vector->array[vector->size] = str;
-    vector->size++;
-}
-
-void print_vector(string_vector *vector)
-{
-    for(uint32 index = 0; index < vector->size; index++)
-    {
-        printf("%s\n", vector->array[index]->c_str);
-    }
-}
+#include <string_vector.h>
 
 /*
  * Compare function to be used by qsort. Due to the implementation in the C
@@ -148,6 +95,6 @@ int main(int argc, char **argv)
     read_file_into_vector(file, vector);
 
     perform_length_alphabet_sort(vector);
-    print_vector(vector);
+    vector_print(vector);
     return 0;
 }

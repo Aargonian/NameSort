@@ -27,7 +27,10 @@ from within the build directory:
 
 If you are on Windows, you will require Visual Studio 2017 or later, as this project
 does use CMake and, unless you want to use the CMake custom tools, Visual Studio did not have support for CMake 
-before this version.
+before this version. Also make sure that your installation of Visual Studio 2017 has the C++ Tools for Desktop
+Development modules installed. If you don't have these, you should be able to use the Visual Studio Installer to
+modify your copy with these modules. Also make sure your copy is fully up to date, as earlier versions had notable
+issues building CMake Projects.
 
 To build the project, just open Visual Studio, and choose Open->CMake from the file menu. Navigate to the project 
 folder, and select the CMakeLists.txt file. The project should open in Visual Studio and, after a bit of indexing, 
