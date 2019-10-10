@@ -47,3 +47,24 @@ void vector_print(string_vector *vector)
         printf("%s\n", vector->array[index]->c_str);
     }
 }
+
+void destroy_vector(string_vector *vector)
+{
+    if(vector)
+    {
+        if(vector->array)
+        {
+            for(uint32 index = 0; index < vector->size; index++)
+            {
+                if(vector->array[index])
+                {
+                    free(vector->array[index]);
+                    vector->array[index] = NULL;
+                }
+            }
+            free(vector->array);
+            vector->array = NULL;
+        }
+        free(vector);
+    }
+}

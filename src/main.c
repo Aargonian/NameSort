@@ -94,5 +94,6 @@ int main(int argc, char **argv)
 
     perform_length_alphabet_sort(vector);
     vector_print(vector);
+    destroy_vector(vector);
     return 0;
 }

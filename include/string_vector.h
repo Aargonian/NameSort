@@ -20,5 +20,6 @@ typedef struct str_vector
 string_vector *create_vector(uint32 capacity);
 void vector_add(string_vector *vector, string *str);
 void vector_print(string_vector *vector);
+void destroy_vector(string_vector *vector);
 
 #endif //NAMESORT_STRING_VECTOR_H
