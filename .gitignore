@@ -1,0 +1,6 @@
+# Default ignored files
+/.idea/workspace.xml
+
+# Ignore CLion Specific Files
+.idea/
+cmake-build-debug/
