@@ -19,7 +19,8 @@ typedef uint_least8_t strlen_t;
  * than 255 characters, the string shall be truncated to make room for the null
  * byte.
  */
-typedef struct NAME_STR {
+typedef struct NAME_STR
+{
     char *c_str;
     strlen_t len;
 } string;
