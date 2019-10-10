@@ -7,7 +7,7 @@
 
 string *create_from_cstr(const char *str)
 {
-    string *new_str = (string *)malloc(sizeof(string));
+    string *new_str = (string *) malloc(sizeof(string));
     if(!str)
     {
         //The passed c string is a null or invalid pointer.
@@ -24,7 +24,7 @@ string *create_from_cstr(const char *str)
     }
 
     //Make sure to +1 for the null byte at the end
-    new_str->c_str = (char *)malloc(sizeof(char)*size + 1);
+    new_str->c_str = (char *) malloc(sizeof(char) * size + 1);
     for(index = 0; index < size && *str != '\0'; index++)
     {
         new_str->c_str[index] = str[index];
@@ -47,17 +47,21 @@ void destroy_string(string *str)
     free(str);
 }
 
-string *concatenate_string(string *str, string *other)
+string *concatenate_string(const string *str, const string *other)
 {
     if(!str || !other)
+    {
         return NULL;
+    }
     if(str->len + other->len > MAX_STR_SIZE)
+    {
         return NULL;
+    }
 
     strlen_t total_len = str->len + other->len;
 
-    string *new_str = (string *)malloc(sizeof(string));
-    new_str->c_str = (char *)malloc(sizeof(char)*total_len + 1);
+    string *new_str = (string *) malloc(sizeof(string));
+    new_str->c_str = (char *) malloc(sizeof(char) * total_len + 1);
     new_str->len = total_len;
 
     for(strlen_t index = 0; index < str->len; index++)
@@ -66,13 +70,78 @@ string *concatenate_string(string *str, string *other)
     }
     for(strlen_t index = 0; index < other->len; index++)
     {
-        new_str->c_str[index+str->len] = other->c_str[index];
+        new_str->c_str[index + str->len] = other->c_str[index];
     }
     new_str->c_str[total_len] = '\0';
     return new_str;
 }
 
-int compare_on_length(string *str, string *other)
+static int is_whitespace(char c)
+{
+    if(c == ' ' || c == '\t' || c == '\n' || c == '\v')
+    {
+        return 1;
+    }
+    return 0;
+}
+
+void strip(string *str)
+{
+    //Sanity check
+    if(!str || !str->c_str || str->len == 0)
+    {
+        return;
+    }
+    //Strip the left side
+    strlen_t lstrip_index = 0;
+    for(strlen_t index = 0; index < str->len; index++)
+    {
+        if(is_whitespace(str->c_str[index]))
+        {
+            lstrip_index++;
+        }
+        else
+        {
+            break;
+        }
+    }
+
+    //Find right side strip index
+    strlen_t rstrip_index = str->len;
+    for(strlen_t index = str->len - 1; index >= 0; index--)
+    {
+        if(is_whitespace(str->c_str[index]))
+        {
+            rstrip_index--;
+        }
+        else
+        {
+            break;
+        }
+    }
+
+    if(lstrip_index == rstrip_index)
+    {
+        free(str->c_str);
+        str->c_str = NULL;
+        str->len = 0;
+    }
+    else
+    {
+        strlen_t chop_off = lstrip_index + (str->len - rstrip_index);
+        char *new = malloc(sizeof(char) * (str->len - chop_off + 1));
+        for(strlen_t index = lstrip_index; index < rstrip_index; index++)
+        {
+            new[index - lstrip_index] = str->c_str[index];
+        }
+        new[rstrip_index - lstrip_index] = '\0';
+        free(str->c_str);
+        str->c_str = new;
+        str->len -= chop_off;
+    }
+}
+
+int compare_on_length(const string *str, const string *other)
 {
     if(str->len < other->len)
     {
@@ -104,10 +173,10 @@ static char lowercase(char c)
     {
         return c;
     }
-    return (char)(c-32);
+    return (char) (c - 32);
 }
 
-int compare_on_alphabet(string *str, string *other)
+int compare_on_alphabet(const string *str, const string *other)
 {
     strlen_t min_len = min(str->len, other->len);
     for(strlen_t index = 0; index < min_len; index++)
@@ -115,9 +184,13 @@ int compare_on_alphabet(string *str, string *other)
         char str_lower_char = lowercase(str->c_str[index]);
         char other_lower_char = lowercase(other->c_str[index]);
         if(str_lower_char < other_lower_char)
+        {
             return -1;
+        }
         else if(str_lower_char > other_lower_char)
+        {
             return 1;
+        }
     }
     //Only difference is length
     return compare_on_length(str, other);
