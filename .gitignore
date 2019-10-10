@@ -4,3 +4,6 @@
 # Ignore CLion Specific Files
 .idea/
 cmake-build-debug/
+
+# Ignore VisualStudio specific files
+.vs/
