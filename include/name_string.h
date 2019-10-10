@@ -6,7 +6,7 @@
 #include <stdint.h>
 
 #define MAX_STR_SIZE 255
-typedef uint8_t strlen_t;
+typedef uint_least8_t strlen_t;
 
 /*
  * C Doesn't define any standard string structure, so we'll make a simple one of
