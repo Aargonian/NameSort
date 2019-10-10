@@ -9,7 +9,12 @@
 //stdint guarantees the least types, unlike the standard uint32_t;
 typedef uint_least32_t uint32;
 
-//Simple vector implementation for our strings
+/*
+ * Simple vector implementation for our strings
+ *
+ * Vectors assume complete ownership of the items they handle, so when the
+ * vector is destroyed, all of its strings will be destroyed with it.
+ */
 typedef struct str_vector
 {
     string **array;
