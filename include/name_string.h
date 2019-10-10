@@ -29,7 +29,7 @@ string *create_from_cstr(const char *str);
 void destroy_string(string *str);
 
 string *concatenate_string(const string *str, const string *other);
-void strip(string *str);
+string *strip(string *str);
 
 int compare_on_length(const string *str, const string *other);
 int compare_on_alphabet(const string *str, const string *other);

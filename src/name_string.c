@@ -85,12 +85,12 @@ static int is_whitespace(char c)
     return 0;
 }
 
-void strip(string *str)
+string *strip(string *str)
 {
     //Sanity check
     if(!str || !str->c_str || str->len == 0)
     {
-        return;
+        return str;
     }
     //Strip the left side
     strlen_t lstrip_index = 0;
@@ -139,6 +139,7 @@ void strip(string *str)
         str->c_str = new;
         str->len -= chop_off;
     }
+    return str;
 }
 
 int compare_on_length(const string *str, const string *other)

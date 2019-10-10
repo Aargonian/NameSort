@@ -69,10 +69,8 @@ void read_file_into_vector(FILE *file, string_vector *vector)
     while(!eof_reached)
     {
         char *line = read_line(file, &eof_reached);
-        string *str = create_from_cstr(line);
+        string *str = strip(create_from_cstr(line));
         free(line);
-
-        strip(str);
         if(str->len == 0)
         {
             destroy_string(str);
