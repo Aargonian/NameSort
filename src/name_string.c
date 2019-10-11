@@ -47,35 +47,6 @@ void destroy_string(string *str)
     free(str);
 }
 
-string *concatenate_string(const string *str, const string *other)
-{
-    if(!str || !other)
-    {
-        return NULL;
-    }
-    if(str->len + other->len > MAX_STR_SIZE)
-    {
-        return NULL;
-    }
-
-    strlen_t total_len = str->len + other->len;
-
-    string *new_str = (string *) malloc(sizeof(string));
-    new_str->c_str = (char *) malloc(sizeof(char) * total_len + 1);
-    new_str->len = total_len;
-
-    for(strlen_t index = 0; index < str->len; index++)
-    {
-        new_str->c_str[index] = str->c_str[index];
-    }
-    for(strlen_t index = 0; index < other->len; index++)
-    {
-        new_str->c_str[index + str->len] = other->c_str[index];
-    }
-    new_str->c_str[total_len] = '\0';
-    return new_str;
-}
-
 static int is_whitespace(char c)
 {
     if(c == ' ' || c == '\t' || c == '\n' || c == '\v')
