@@ -18,7 +18,7 @@ char *read_line(FILE *file, int *eof_reached)
                     MAX_STR_SIZE);
             exit(2);
         }
-        lineBuffer[count] = (char)ch;
+        lineBuffer[count] = (char) ch;
         count++;
         ch = getc(file);
     }
