@@ -8,7 +8,7 @@
 #include <stdint.h>
 
 #define MIN_VEC_SIZE 8
-#define MAX_STR_SIZE 256
+#define MAX_STR_SIZE 255
 
 /*
  * The C Spec does not guarantee an exact 8/16/32/64-bit size for every platform
