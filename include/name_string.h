@@ -3,7 +3,6 @@
 #ifndef TEST_NAME_STRING_H
 #define TEST_NAME_STRING_H
 
-#include <stdint.h>
 #include <constants.h>
 
 /*

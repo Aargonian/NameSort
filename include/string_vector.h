@@ -1,7 +1,6 @@
 #ifndef NAMESORT_STRING_VECTOR_H
 #define NAMESORT_STRING_VECTOR_H
 
-#include <stdint.h>
 #include <name_string.h>
 
 /*
