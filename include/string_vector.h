@@ -4,11 +4,6 @@
 #include <stdint.h>
 #include <name_string.h>
 
-#define MIN_VEC_SIZE 8
-
-//stdint guarantees the least types, unlike the standard uint32_t;
-typedef uint_least32_t uint32;
-
 /*
  * Simple vector implementation for our strings
  *

@@ -4,9 +4,7 @@
 #define TEST_NAME_STRING_H
 
 #include <stdint.h>
-
-#define MAX_STR_SIZE 255
-typedef uint_least8_t strlen_t;
+#include <constants.h>
 
 /*
  * C Doesn't define any standard string structure, so we'll make a simple one of
