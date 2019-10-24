@@ -9,3 +9,4 @@ cmake-build-debug/
 .vs/
 
 /test/output.txt
+/test/output2.txt
