@@ -10,6 +10,9 @@
 #define MIN_VEC_SIZE 8
 #define MAX_STR_SIZE 255
 
+#define min(X,Y) ((X) < (Y) ? (X) : (Y))
+#define max(X,Y) ((X) > (Y) ? (Y) : (X))
+
 /*
  * The C Spec does not guarantee an exact 8/16/32/64-bit size for every platform
  * So even though uint8_t is defined on most platforms, it is not guaranteed.
