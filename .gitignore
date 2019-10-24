@@ -10,3 +10,4 @@ cmake-build-debug/
 
 /test/output.txt
 /test/output2.txt
+/test/NameSort.exe
