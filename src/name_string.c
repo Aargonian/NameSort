@@ -145,7 +145,7 @@ static char lowercase(char c)
     {
         return c;
     }
-    return (char) (c - 32);
+    return (char) (c + 32);
 }
 
 int compare_on_alphabet(const string *str, const string *other)
