@@ -53,3 +53,11 @@ program.
 To run the program, it will be almost the same as on Unix:
 
 ./NameSort.exe "./Sort Me.txt"
+
+# Testing
+
+Testing is currently very simple. All test files are contained in the test subdirectory. Testing is currently automated
+by a batch/cmd script which can be run automatically by building the project with CMake.
+
+If you wish to manually run the test on Windows, simply open your command prompt in the test directory and run the 
+Test.cmd file. Make sure you have built the executable and moved it to the test directory first. 
