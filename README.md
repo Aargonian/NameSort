@@ -18,10 +18,10 @@ make
 
 After you have built the program, you can run it from the build directory or move it to a location of your choice.
 The program needs the file to sort passed to it. I have included a copy of the 'Sort Me.txt' test file within the 
-'sandbox' folder of the project, for testing purposes. To test the program on it, simply run the following commands 
+'test' folder of the project, for testing purposes. To test the program on it, simply run the following commands 
 from within the build directory:
 
-./NameSort "../sandbox/Sort Me.txt"
+./NameSort "../test/Sort Me.txt"
 
 # Windows Build
 
@@ -57,7 +57,8 @@ To run the program, it will be almost the same as on Unix:
 # Testing
 
 Testing is currently very simple. All test files are contained in the test subdirectory. Testing is currently automated
-by a batch/cmd script which can be run automatically by building the project with CMake.
+by a batch/cmd/bash script which can be run automatically by building the project with CMake. The CMake system should
+automatically determine what system you are on and run the appropriate script.
 
-If you wish to manually run the test on Windows, simply open your command prompt in the test directory and run the 
-Test.cmd file. Make sure you have built the executable and moved it to the test directory first. 
+If you wish to manually run the test, simply open your command prompt or terminal in the test directory and run the 
+Test.cmd or Test.sh file. Make sure you have built the executable and moved it to the test directory first.
