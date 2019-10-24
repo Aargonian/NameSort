@@ -19,5 +19,5 @@ add_custom_command(
         TARGET NameSort
         POST_BUILD
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/test
-        COMMAND cmd //C Test.bat
+        COMMAND cmd /c Test.cmd
 )
