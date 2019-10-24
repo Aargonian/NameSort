@@ -7,3 +7,5 @@ cmake-build-debug/
 
 # Ignore VisualStudio specific files
 .vs/
+
+/test/output.txt
