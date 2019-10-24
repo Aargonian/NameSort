@@ -15,9 +15,18 @@ add_custom_command(TARGET NameSort POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $
 target_include_directories(NameSort PRIVATE ${CMAKE_SOURCE_DIR}/include)
 
 # After everything has been built, we want to automatically run tests as part of the build
-add_custom_command(
-        TARGET NameSort
-        POST_BUILD
-        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/test
-        COMMAND cmd /c Test.cmd
-)
+IF(Win32)
+    add_custom_command(
+            TARGET NameSort
+            POST_BUILD
+            WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/test
+            COMMAND cmd /c Test.cmd
+    )
+ELSE()
+    add_custom_command(
+            TARGET NameSort
+            POST_BUILD
+            WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/test
+            COMMAND bash -c ./Test.sh
+    )
+ENDIF()
