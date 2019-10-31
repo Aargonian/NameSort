@@ -73,14 +73,14 @@ int main(int argc, char **argv)
         switch(argv[option_index][1]) {
             case 'd': ascending = 0; break;
             case '-':
-                if(argv[2] == '\0') {
+                if(argv[option_index][2] == '\0') {
                     //Double Dash with no other characters is traditional unix symbol of no more options, so we stop.
                     double_dash_found = 1;
                 } else {
-                    string *option = create_from_cstr(argv[2]); //Pass in the remainder of the string
+                    string *option = create_from_cstr(argv[option_index]+2); //Pass in the remainder of the string
                     if(compare_on_alphabet(option, long_descending_option) == 0)
                     {
-                        ascending = 1;
+                        ascending = 0;
                     }
                     else
                     {
