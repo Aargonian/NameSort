@@ -8,8 +8,7 @@ cmake-build-debug/
 # Ignore VisualStudio specific files
 .vs/
 
-/test/output.txt
-/test/output2.txt
+/test/output*.txt
 /test/NameSort.exe
 /test/NameSort
 
