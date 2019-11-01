@@ -24,41 +24,53 @@ rm -f $OUTPUT6
 diff "Sorted.txt" $OUTPUT
 if [ $? -eq 0 ]; then
     echo "Test 1 Success"
+    exit 0
 else
     echo "Test 1 Failure"
+    exit 1
 fi
 
 diff "Sorted 2.txt" $OUTPUT2
 if [ $? -eq 0 ]; then
     echo "Test 2 Success"
+    exit 0
 else
     echo "Test 2 Failure"
+    exit 1
 fi
 
 diff "Sorted 3.txt" $OUTPUT3
 if [ $? -eq 0 ]; then
     echo "Test 3 Success"
+    exit 0
 else
     echo "Test 3 Failure"
+    exit 1
 fi
 
 diff "Sorted 4.txt" $OUTPUT4
 if [ $? -eq 0 ]; then
     echo "Test 4 Success"
+    exit 0
 else
     echo "Test 4 Failure"
+    exit 1
 fi
 
 diff "Sorted 3.txt" $OUTPUT5
 if [ $? -eq 0 ]; then
     echo "Test 5 Success"
+    exit 0
 else
     echo "Test 5 Failure"
+    exit 1
 fi
 
 diff "Sorted 4.txt" $OUTPUT6
 if [ $? -eq 0 ]; then
     echo "Test 6 Success"
+    exit 0
 else
     echo "Test 6 Failure"
+    exit 1
 fi
