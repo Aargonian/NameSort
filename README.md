@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Aargonian/NameSort.svg?branch=master)](https://travis-ci.org/Aargonian/NameSort)
+
 # NameSort
 This program is designed to take as input a txt file containing a list of names, separated by line breaks, and sorts 
 them first by length and then alphabetically.
